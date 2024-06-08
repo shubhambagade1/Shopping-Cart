@@ -3,7 +3,7 @@ const Pdata = [
         id: 1,
         imgsrc: "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/j/3/g/-original-imagx9eftbknvcwg.jpeg?q=70&crop=false",
         pname: "Samsung S24 5G",
-        pprice: "120000"
+        pprice: "12000"
     },
 
     {

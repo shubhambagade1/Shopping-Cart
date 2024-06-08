@@ -1,19 +1,18 @@
 import React, { useState, useEffect } from "react";
 
-function Cart({ cartItems }) {
-  //represents the items in the shopping cart.
+function Cart() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    // Initialize the cart state with quantity and total properties for each item
-    setCart(
-      cartItems.map((item) => ({
-        ...item,
-        quantity: 1,
-        total: parseFloat(item.pprice) * 1 // Convert string price to number
-      }))
-    );
-  }, [cartItems]);
+    const savedCart = JSON.parse(localStorage.getItem("cart"));
+    if (savedCart) {
+      setCart(savedCart);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   const handleQuantityChange = (id, change) => {
     const updatedCart = cart.map((item) =>
@@ -25,22 +24,19 @@ function Cart({ cartItems }) {
         }
         : item
     );
-
     setCart(updatedCart);
   };
 
-  
-  //clear perticular product
   const handleCancel = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
   };
-  // Calculate grand total
+
   const grandTotal = cart.reduce((total, item) => total + item.total, 0);
 
-  //clear all
   const clearCart = () => {
-    setCart([]); // Set the cart state to an empty array
+    setCart([]);
+    localStorage.removeItem("cart");
   };
 
   return (
