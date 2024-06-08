@@ -6,8 +6,16 @@ import './ShoppingPage.css';
 function ShoppingPage() {
   const handleAddToCart = (product) => {
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
-    const updatedCart = [...existingCart, { ...product, quantity: 1, total: parseFloat(product.pprice) }];
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    const productIndex = existingCart.findIndex(item => item.id === product.id);
+    
+    if (productIndex !== -1) {
+      existingCart[productIndex].quantity += 1;
+      existingCart[productIndex].total = parseFloat(product.pprice) * existingCart[productIndex].quantity;
+    } else {
+      existingCart.push({ ...product, quantity: 1, total: parseFloat(product.pprice) });
+    }
+    
+    localStorage.setItem("cart", JSON.stringify(existingCart));
     alert("Product added Successfully!!!");
   };
 
