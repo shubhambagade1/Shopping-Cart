@@ -1,0 +1,52 @@
+.navbar {
+  padding: 1rem 2rem;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.offcanvas-body {
+  padding: 1rem 2rem;
+}
+
+.offcanvas-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.offcanvas-header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.offcanvas-header .btn-close {
+  margin-top: -0.5rem;
+}
+
+.offcanvas-header .btn-close {
+  color: #fff;
+}
+
+.offcanvas-header .btn-close:hover {
+  color: #f8f9fa;
+}
+
+
+.nav-link,
+.main-link {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffc107;
+}
+
+.nav-link:hover,
+.main-link:hover {
+  color: #fff;
+}
+
+.nav-link:active,
+.main-link:active {
+  color: #eaeff0;
+}
